@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Interview.Infrastructure.Migrations
 {
-    public partial class updateinterview : Migration
+    public partial class initinterviewdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,8 +63,7 @@ namespace Interview.Infrastructure.Migrations
                     InterviewTypeCode = table.Column<int>(type: "int", nullable: false),
                     InterviewRound = table.Column<int>(type: "int", nullable: false),
                     ScheduledOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    InterviewerId = table.Column<int>(type: "int", nullable: false),
-                    InterviewTypeLookupCode = table.Column<int>(type: "int", nullable: true)
+                    InterviewerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,10 +75,11 @@ namespace Interview.Infrastructure.Migrations
                         principalColumn: "InterviewerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Interviews_InterviewTypes_InterviewTypeLookupCode",
-                        column: x => x.InterviewTypeLookupCode,
+                        name: "FK_Interviews_InterviewTypes_InterviewTypeCode",
+                        column: x => x.InterviewTypeCode,
                         principalTable: "InterviewTypes",
-                        principalColumn: "LookupCode");
+                        principalColumn: "LookupCode",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Interviews_Recruiters_RecruiterId",
                         column: x => x.RecruiterId,
@@ -120,9 +120,9 @@ namespace Interview.Infrastructure.Migrations
                 column: "InterviewerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Interviews_InterviewTypeLookupCode",
+                name: "IX_Interviews_InterviewTypeCode",
                 table: "Interviews",
-                column: "InterviewTypeLookupCode");
+                column: "InterviewTypeCode");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Interviews_RecruiterId",

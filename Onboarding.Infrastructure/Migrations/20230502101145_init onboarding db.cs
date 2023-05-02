@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Onboarding.Infrastructure.Migrations
 {
-    public partial class initonboarding : Migration
+    public partial class initonboardingdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

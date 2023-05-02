@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Authentication.Core.Contracts.Repositories
+namespace Authentication.Core.Contracts.Services
 {
-    public interface IRoleRepository
+    internal interface IAuthenticationService
     {
     }
 }

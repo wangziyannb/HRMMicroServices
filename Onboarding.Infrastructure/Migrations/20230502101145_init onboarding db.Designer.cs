@@ -12,8 +12,8 @@ using Onboarding.Infrastructure.Data;
 namespace Onboarding.Infrastructure.Migrations
 {
     [DbContext(typeof(OnboardingDbContext))]
-    [Migration("20230424110056_init onboarding")]
-    partial class initonboarding
+    [Migration("20230502101145_init onboarding db")]
+    partial class initonboardingdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

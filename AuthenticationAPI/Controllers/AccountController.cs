@@ -13,56 +13,16 @@ namespace AuthenticationAPI.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IAccountService service;
         private readonly JwtTokenHandler jwtTokenHandler;
         private readonly IAuthenticationRepository authenticationRepository;
 
-        public AccountController(IAccountService service, JwtTokenHandler jwtTokenHandler, IAuthenticationRepository authenticationRepository)
+        public AccountController(JwtTokenHandler jwtTokenHandler, IAuthenticationRepository authenticationRepository)
         {
-            this.service = service;
             this.jwtTokenHandler = jwtTokenHandler;
             this.authenticationRepository = authenticationRepository;
         }
 
-        [HttpPost("Create")]
-        public async Task<IActionResult> Create(AccountRequestModel model)
-        {
-            if (model != null)
-            {
-                return Ok(await service.AddAccountAsync(model));
-            }
-            return BadRequest();
-        }
-
-        [HttpGet("Get")]
-        public async Task<IActionResult> Get(int id)
-        {
-            return Ok(await service.GetAccountByIdAsync(id));
-        }
-
-        [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(await service.GetAllAccounts());
-        }
-
-        [HttpDelete("Delete")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            return Ok(await service.DeleteAccountAsync(id));
-        }
-
-        [HttpPost("Update")]
-        public async Task<IActionResult> Update(AccountRequestModel model)
-        {
-            if (model != null)
-            {
-                return Ok(await service.UpdateAccountAsync(model));
-            }
-            return BadRequest();
-        }
         [HttpPost("Login")]
-
         public async Task<IActionResult> Login(LoginModel model)
         {
             var result = await authenticationRepository.LoginAsync(model);

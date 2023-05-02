@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Interview.Infrastructure.Migrations
 {
     [DbContext(typeof(InterviewEFDbContext))]
-    [Migration("20230428180557_update interview 2")]
-    partial class updateinterview2
+    [Migration("20230502101112_init interview db")]
+    partial class initinterviewdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

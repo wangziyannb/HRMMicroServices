@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Authentication.Infrastructure.Migrations
 {
     [DbContext(typeof(AuthenticationDbContext))]
-    [Migration("20230501193207_init auth db")]
+    [Migration("20230502101019_init auth db")]
     partial class initauthdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

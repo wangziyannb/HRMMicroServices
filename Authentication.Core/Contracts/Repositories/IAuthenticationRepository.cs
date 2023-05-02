@@ -10,7 +10,8 @@ namespace Authentication.Core.Contracts.Repositories
 {
     public interface IAuthenticationRepository
     {
-        Task<IdentityResult> SignUpAsync(SignUpModel model);
-        Task<SignInResult> LoginAsync(LoginModel model);
+        Task<IdentityResult> CreateAsync(ApplicationUser user, string password);
+        Task<IdentityResult> CreateAsync(ApplicationUser user, string password, string role);
+        Task<SignInResult> PasswordSignInAsync(string username, string password);
     }
 }

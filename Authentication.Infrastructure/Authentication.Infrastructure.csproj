@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Authentication.Core\Authentication.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

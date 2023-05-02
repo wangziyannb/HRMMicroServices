@@ -3,6 +3,7 @@ using Authentication.Core.Contracts.Services;
 using Authentication.Core.Models;
 using Authentication.Infrastructure.Data;
 using Authentication.Infrastructure.Repositories;
+using Authentication.Infrastructure.Services;
 using AuthenticationAPI.Middlewares;
 using JWTAuthenticationManager;
 using Microsoft.AspNetCore.Identity;
@@ -32,6 +33,7 @@ builder.Services.AddDbContext<AuthenticationDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AuthenticationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddLogging();
 builder.Services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 builder.Services.AddSingleton<JwtTokenHandler>();
 

@@ -14,26 +14,30 @@ namespace AuthenticationAPI.Controllers
     public class AccountController : ControllerBase
     {
         private readonly JwtTokenHandler jwtTokenHandler;
-        private readonly IAuthenticationRepository authenticationRepository;
+        private readonly IAuthenticationService service;
 
-        public AccountController(JwtTokenHandler jwtTokenHandler, IAuthenticationRepository authenticationRepository)
+        public AccountController(JwtTokenHandler jwtTokenHandler, IAuthenticationService service)
         {
             this.jwtTokenHandler = jwtTokenHandler;
-            this.authenticationRepository = authenticationRepository;
+            this.service = service;
         }
 
-        [HttpPost("Login")]
-        public async Task<IActionResult> Login(LoginModel model)
+        [HttpPost("SignIn")]
+        public async Task<IActionResult> SignIn(SignInModel model)
         {
-            var result = await authenticationRepository.LoginAsync(model);
+            var result = await service.SignInAsync(model);
             if (result.Succeeded)
             {
-                AuthenticationRequest request = new AuthenticationRequest() {
-                 Username = model.Username,
-                 Password = model.Password
+                AuthenticationRequest request = new AuthenticationRequest()
+                {
+                    Username = model.Username,
+                    Password = model.Password
                 };
                 var response = jwtTokenHandler.GenerateToken(request, "admin");
-                if (response == null) return Unauthorized();
+                if (response == null)
+                {
+                    return Unauthorized();
+                }
                 return Ok(response);
             }
             return Unauthorized();
@@ -42,9 +46,11 @@ namespace AuthenticationAPI.Controllers
         [HttpPost("SignUp")]
         public async Task<IActionResult> SignUp(SignUpModel model)
         {
-            var result = await authenticationRepository.SignUpAsync(model);
-            if (result.Succeeded) return Ok("Your account has been created");
-
+            var result = await service.SignUpAsync(model);
+            if (result.Succeeded)
+            {
+                return Ok("Your account has been created");
+            }
             return BadRequest();
         }
 

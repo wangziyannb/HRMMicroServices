@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Authentication.Core.Models
 {
-    public class LoginModel
+    public class SignInModel
     {
         [Required]
         public string Username { get; set; }

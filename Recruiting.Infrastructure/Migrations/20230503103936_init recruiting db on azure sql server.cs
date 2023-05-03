@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Recruiting.Infrastructure.Migrations
 {
-    public partial class initrecruitingdb : Migration
+    public partial class initrecruitingdbonazuresqlserver : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

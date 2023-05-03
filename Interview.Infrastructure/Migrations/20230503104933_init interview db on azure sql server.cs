@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Interview.Infrastructure.Migrations
 {
-    public partial class initinterviewdb : Migration
+    public partial class initinterviewdbonazuresqlserver : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

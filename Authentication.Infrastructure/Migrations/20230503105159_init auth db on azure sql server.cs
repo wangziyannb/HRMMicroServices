@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Authentication.Infrastructure.Migrations
 {
-    public partial class initauthdb : Migration
+    public partial class initauthdbonazuresqlserver : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

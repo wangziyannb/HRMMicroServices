@@ -11,7 +11,7 @@ namespace InterviewAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin,User")]
+    [Authorize]
     public class InterviewController : ControllerBase
     {
         private readonly IInterviewService service;
@@ -90,7 +90,6 @@ namespace InterviewAPI.Controllers
                 InterviewerId = Convert.ToInt32(await interviewerResponse.Content.ReadAsStringAsync()),
             };
             return await Create(model2);
-
         }
 
         [HttpGet("GetCandidate")]

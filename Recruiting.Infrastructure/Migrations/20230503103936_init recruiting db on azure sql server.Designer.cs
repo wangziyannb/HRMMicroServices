@@ -12,8 +12,8 @@ using Recruiting.Infrastructure.Data;
 namespace Recruiting.Infrastructure.Migrations
 {
     [DbContext(typeof(RecruitingDbContext))]
-    [Migration("20230502101250_init recruiting db")]
-    partial class initrecruitingdb
+    [Migration("20230503103936_init recruiting db on azure sql server")]
+    partial class initrecruitingdbonazuresqlserver
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

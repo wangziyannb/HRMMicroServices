@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Authentication.Infrastructure.Migrations
 {
     [DbContext(typeof(AuthenticationDbContext))]
-    [Migration("20230502101019_init auth db")]
-    partial class initauthdb
+    [Migration("20230503105159_init auth db on azure sql server")]
+    partial class initauthdbonazuresqlserver
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -21,6 +21,8 @@ services:
 
   authenticationapi:
     image: ${DOCKER_REGISTRY-}authenticationapi
+    ports:
+    - "40125:80" 
     build:
       context: .
       dockerfile: AuthenticationAPI/Dockerfile
@@ -29,7 +31,7 @@ services:
   interviewapi:
     image: ${DOCKER_REGISTRY-}interviewapi
     ports:
-    - "40125:80" 
+    - "40126:80" 
     build:
       context: .
       dockerfile: InterviewAPI/Dockerfile

@@ -9,7 +9,8 @@ namespace RecruitingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin,User")]
+    //[Authorize(Roles = "Admin,User")]
+    [Authorize]
     public class CandidateController : ControllerBase
     {
         private readonly ICandidateService service;
